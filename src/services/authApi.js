@@ -6,8 +6,10 @@ export const authApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://connections-api.herokuapp.com/',
     prepareHeaders: (headers, { getState }) => {
-      const { token = '' } = getState().auth;
-      headers.set('Authorization', token);
+      const token = getState().auth.token;
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`);
+      }
 
       return headers;
     },
@@ -26,7 +28,7 @@ export const authApi = createApi({
         method: 'POST',
         body: payload,
       }),
-      // invalidatesTags: ['User'],
+      invalidatesTags: ['User'],
     }),
     logout: builder.mutation({
       query: payload => ({
@@ -34,7 +36,7 @@ export const authApi = createApi({
         method: 'POST',
         body: payload,
       }),
-      // invalidatesTags: ['User'],
+      invalidatesTags: ['User'],
     }),
 
     signup: builder.mutation({
@@ -43,7 +45,7 @@ export const authApi = createApi({
         method: 'POST',
         body: payload,
       }),
-      // invalidatesTags: ['User'],
+      invalidatesTags: ['User'],
     }),
   }),
 });

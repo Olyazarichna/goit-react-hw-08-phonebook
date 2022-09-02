@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { useLoginMutation } from '../services/authApi';
+import { useLoginMutation } from '../../services/authApi';
 // import { login } from 'redux/authSlice';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-export const LogInView = () => {
+
+export const LoginView = () => {
   const [login, status] = useLoginMutation();
   // const user = useSelector(state => state.auth);
-
   const { isLoading } = status;
+
+  // const dispatch = useDispatch();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,6 +20,7 @@ export const LogInView = () => {
     event.preventDefault();
 
     const data = { email, password };
+
     login(data);
     setEmail('');
     setPassword('');

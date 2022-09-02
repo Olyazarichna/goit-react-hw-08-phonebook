@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useSignupMutation, useLoginMutation } from 'services/authApi';
+import { useSignupMutation } from 'services/authApi';
 import { login } from 'redux/authSlice';
-export const SignUpView = () => {
+
+export const SignupView = () => {
   const [signup, status, isError] = useSignupMutation();
-  // console.log('user', signup);
-  // const [login] = useLoginMutation();
+  // console.log('status', status);
+  // const [isLoggedIn] = useState(true);
+  // console.log('sel', isLoggedIn);
   const dispatch = useDispatch();
 
   const [name, setName] = useState('');
@@ -14,31 +16,15 @@ export const SignUpView = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const data = { name, email, password };
-    signup(data);
-    login(data);
-    console.log('data', data);
+    // const data = { name, email, password };
+
+    signup({ name, email, password });
+
     setName('');
     setEmail('');
     setPassword('');
   };
-  // const handleSubmit = async event => {
-  //   event.preventDefault();
 
-  //   try {
-  //     const data = { name, email, password };
-  //     await signup(data);
-  //     // await dispatch(login(signup.user, signup.token));
-
-  //     // await dispatch(login());
-  //   } catch {
-  //     console.log(console.error());
-  //   }
-
-  // setName('');
-  // setEmail('');
-  // setPassword('');
-  // };
   const handleChangeName = event => {
     setName(event.currentTarget.value);
   };

@@ -5,7 +5,7 @@ import { useGetContactsQuery } from 'services/contactsApi';
 export const ContactList = () => {
   const { data, error, isLoading } = useGetContactsQuery();
 
-  console.log('data', data);
+  console.log('data', error);
   const { filter } = useSelector(state => state.filter);
 
   const filterContacts = () => {
