@@ -1,32 +1,56 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { authApi } from 'services/authApi';
 
 const initialState = {
-  email: '',
-  password: '',
-  token: '',
+  user: { name: null, email: null },
+  token: null,
+  isLoggedIn: false,
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    increment: state => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    login: (state, { payload }) => {
+      const { user, token } = payload;
+      state.email = user.email;
+      state.name = user.name;
+      state.token = token;
+      state.isLoggedIn = true;
     },
-    decrement: state => {
-      state.value -= 1;
+    logout: state => {
+      state.user = initialState.user;
+      state.token = initialState.token;
+      state.isLoggedIn = false;
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    getCurrent: (state, { payload }) => {
+      state.email = payload.email;
+      state.name = payload.name;
     },
   },
+  // extraReducers: builder => {
+  //   builder.addMatcher(
+  //     authApi.endpoints.login.matchFulfilled,
+  //     (state, { payload }) => {
+  //       const { user, token } = payload;
+  //       state.email = user.email;
+  //       state.name = user.name;
+  //       state.token = token;
+  //       state.isLoggedIn = true;
+  //     }
+  //   );
+  // },
+  // builder.addMatcher(
+  //   authApi.endpoints.getCurrent.matchFulfilled,
+  //   (state, { payload }) => {
+  //      state.email = payload.email;
+  //     state.name = payload.name;
+
+  //   }
+  // )
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+// // Action creators are generated for each case reducer function
+export const { login, logout, getCurrent } = authSlice.actions;
 
-export default counterSlice.reducer;
+export default authSlice.reducer;
