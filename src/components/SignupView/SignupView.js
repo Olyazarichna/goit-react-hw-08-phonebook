@@ -23,7 +23,6 @@ export const SignupView = () => {
       const {
         data: { user, token },
       } = await signup({ name, email, password });
-
       await dispatch(login({ user, token }));
       setName('');
       setEmail('');
