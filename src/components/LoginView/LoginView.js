@@ -1,30 +1,39 @@
 import { useState } from 'react';
 import { useLoginMutation } from '../../services/authApi';
-// import { login } from 'redux/authSlice';
-// import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-
+import { useDispatch } from 'react-redux';
+import { useNavigate} from 'react-router';
+import { login } from 'redux/authSlice';
 export const LoginView = () => {
-  const [login, status] = useLoginMutation();
-  console.log('login', status);
-  // const user = useSelector(state => state.auth);
-  const { isLoading } = status;
+  const [logIn, status] = useLoginMutation();
+ const dispatch = useDispatch();
+ const navigate = useNavigate();
 
-  // const dispatch = useDispatch();
+  const { isLoading } = status;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
+    try {
+      const {
+        data: { user, token },
+      } = await logIn({ email, password });
+      dispatch(login({ user, token }));
+      navigate('/contacts');
+      setEmail('');
+      setPassword('');
+   
+    } catch (error) {
+    alert(
+        'Something went wrong'
+      );
+    }
 
-    const data = { email, password };
-
-    login(data);
-    setEmail('');
-    setPassword('');
+   
   };
 
   return (
@@ -32,6 +41,7 @@ export const LoginView = () => {
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-3">
           <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email </Form.Label>
             <Form.Control
               type="email"
               name="email"
@@ -40,7 +50,7 @@ export const LoginView = () => {
               placeholder="Email"
               required
             />
-
+            <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
               name="password"
@@ -61,3 +71,5 @@ export const LoginView = () => {
     </>
   );
 };
+
+export default LoginView;

@@ -4,8 +4,6 @@ import { useGetContactsQuery } from 'services/contactsApi';
 
 export const ContactList = () => {
   const { data, error, isLoading } = useGetContactsQuery();
-
-  console.log('data', error);
   const { filter } = useSelector(state => state.filter);
 
   const filterContacts = () => {
@@ -15,7 +13,7 @@ export const ContactList = () => {
   };
   return (
     <>
-      <ul>
+      <ul className="d-flex flex-column justify-content-between w-25">
         {error ? (
           <>Oh no, there was an error</>
         ) : isLoading ? (

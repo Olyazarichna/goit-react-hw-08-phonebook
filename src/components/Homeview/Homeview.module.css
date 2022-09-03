@@ -1,14 +1,7 @@
-.wrapper {
-  position: relative;
-}
-img {
-  margin: 0 auto;
-}
 .text {
   position: absolute;
-  top: 100px;
-  left: 300px;
+  top: 40px;
   font-size: 28px;
   font-weight: 700;
-  color: #f5f7ff;
+  color: #ec8817;
 }

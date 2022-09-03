@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// // // Define a service using a base URL and expected endpoints
+
 export const contactsApi = createApi({
   reducerPath: 'contactsApi',
   baseQuery: fetchBaseQuery({
@@ -34,13 +34,6 @@ export const contactsApi = createApi({
       }),
       invalidatesTags: ['Contacts'],
     }),
-    // changeContact: builder.mutation({
-    //   query: id => ({
-    //     url: `/contacts/${id}`,
-    //     method: 'PATCH',
-    //   }),
-    //   invalidatesTags: ['Contact'],
-    // }),
   }),
 });
 
@@ -48,5 +41,4 @@ export const {
   useGetContactsQuery,
   useAddContactMutation,
   useDeleteContactMutation,
-  //   useChangeContactMutation,
 } = contactsApi;

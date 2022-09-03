@@ -1,13 +1,15 @@
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactList } from 'components/ContactList/ContactList';
 import { Filter } from 'components/Filter/Filter';
+import Card from 'react-bootstrap/Card';
+
 export const Contacts = () => {
   return (
     <>
       <ContactForm />
-      <h2>Find contact by name</h2>
+      <Card.Title>Find contact by name</Card.Title>
       <Filter />
-      <h2>Contacts</h2>
+      <Card.Title>Contacts</Card.Title>
       <ContactList />
     </>
   );

@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from 'redux/authSlice';
-
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 export const UserMenu = () => {
   const { email } = useSelector(state => state.auth);
   const dispatch = useDispatch();
@@ -10,8 +11,10 @@ export const UserMenu = () => {
   };
   return (
     <>
-      <p>Welcome {email}</p>
-      <button onClick={handleClick}>Log out</button>
+      <Card.Title className="text-white">Welcome {email} </Card.Title>
+      <Button variant="warning" onClick={handleClick}>
+        Log out
+      </Button>
     </>
   );
 };
