@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import { HomePage } from './pages/HomePage';
+import { HomePage } from 'pages/HomePage';
 import { AppBar } from './AppBar/AppBar';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { NotFoundPage } from 'pages/NotFoundPage';
 import { LoginView } from 'components/LoginView/LoginView';
 import { SignupView } from 'components/SignupView/SignupView';
 import { Contacts } from 'components/Contacts/Contacts';
@@ -17,7 +17,6 @@ export const App = () => {
     skip: !token,
   });
 
-  // console.log('current', data);
   return (
     <div>
       <AppBar />
