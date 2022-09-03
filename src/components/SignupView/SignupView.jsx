@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { useSignupMutation } from 'services/authApi';
-import { login } from 'redux/authSlice';
+// import { login } from 'redux/authSlice';
 
 export const SignupView = () => {
-  const [signup, status, isError] = useSignupMutation();
+  const [signup] = useSignupMutation();
   // console.log('status', status);
   // const [isLoggedIn] = useState(true);
   // console.log('sel', isLoggedIn);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
