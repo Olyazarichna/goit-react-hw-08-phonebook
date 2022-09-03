@@ -5,6 +5,7 @@ import { login } from 'redux/authSlice';
 import { useNavigate } from 'react-router';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { toast } from 'react-toastify';
 
 export const SignupView = () => {
   const [signup] = useSignupMutation();
@@ -29,7 +30,7 @@ export const SignupView = () => {
       setPassword('');
       navigate('/contacts');
     } catch (error) {
-      alert('Something went wrong');
+      toast.error('Something went wrong');
     }
   };
 

@@ -6,6 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import { useDispatch } from 'react-redux';
 import { useNavigate} from 'react-router';
 import { login } from 'redux/authSlice';
+import { toast } from 'react-toastify';
 export const LoginView = () => {
   const [logIn, status] = useLoginMutation();
  const dispatch = useDispatch();
@@ -28,7 +29,7 @@ export const LoginView = () => {
       setPassword('');
    
     } catch (error) {
-    alert(
+    toast.error(
         'Something went wrong'
       );
     }

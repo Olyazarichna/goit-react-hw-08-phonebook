@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 
 import Card from 'react-bootstrap/Card';
+
 export const HomeView = () => {
   return (
     <Container fluid="md">

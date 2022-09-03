@@ -2,6 +2,7 @@ import { filterContact } from 'redux/filterSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+
 export const Filter = () => {
   const { filter } = useSelector(state => state.filter);
   const dispatch = useDispatch();

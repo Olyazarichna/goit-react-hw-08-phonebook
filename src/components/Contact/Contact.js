@@ -1,6 +1,7 @@
 import { useDeleteContactMutation } from 'services/contactsApi';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import PropTypes from 'prop-types';
 
 export const Contact = ({ id, name, number }) => {
   const [deleteContact, result] = useDeleteContactMutation();
@@ -22,4 +23,10 @@ export const Contact = ({ id, name, number }) => {
   );
 };
 
+Contact.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+
+};
 export default Contact;
