@@ -41,13 +41,14 @@ export const authSlice = createSlice({
   //   );
   // },
   // builder.addMatcher(
-  //   authApi.endpoints.getCurrent.matchFulfilled,
+  //   authApi.endpoints.currentUser.matchRejected,
   //   (state, { payload }) => {
-  //      state.email = payload.email;
-  //     state.name = payload.name;
-
+  //     if (payload.status === 401) {
+  //       state.token = '';
+  //     }
   //   }
-  // )
+  // );
+  // },
 });
 
 // // Action creators are generated for each case reducer function

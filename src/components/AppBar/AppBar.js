@@ -9,6 +9,7 @@ import css from './AppBar.module.css';
 
 export const AppBar = () => {
   const user = useSelector(state => state.auth);
+  console.log('AppBarUser', user);
 
   return (
     <>

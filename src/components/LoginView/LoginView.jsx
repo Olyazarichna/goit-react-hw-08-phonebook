@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { useLoginMutation } from '../../services/authApi';
 // import { login } from 'redux/authSlice';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 
 export const LoginView = () => {
   const [login, status] = useLoginMutation();
+  console.log('login', status);
   // const user = useSelector(state => state.auth);
   const { isLoading } = status;
 
