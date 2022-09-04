@@ -13,9 +13,9 @@ export const AppBar = () => {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>
-            <NavLink to="/" className={css.link}>
+            {/* <NavLink to="/" className={css.link}>
               Home
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/contacts">Contacts</NavLink>
           </Navbar.Brand>
 

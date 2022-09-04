@@ -10,6 +10,9 @@ export const AuthNav = () => {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Nav className="me-auto">
+                  <NavLink to="/" className={css.link}>
+              Home
+            </NavLink>
             <NavLink to="/register" className={css.link}>
               SignUp
             </NavLink>
