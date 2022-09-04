@@ -8,9 +8,11 @@ import {Contacts} from 'components/Contacts/Contacts';
 
 export const HomeView = () => {
   const user = useSelector(state => state.auth);
+  console.log('user',user);
+
   return (
     <Container fluid="md">
-      {user.isLoggedIn ? <Contacts/> : <><Card className="text-center">
+      {user.token ? <Contacts/> : <><Card className="text-center">
         <p className={css.text}>
           For more information you should
           <Link to="/login"> log in </Link>
