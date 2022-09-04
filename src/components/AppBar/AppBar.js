@@ -4,7 +4,7 @@ import { UserMenu } from 'components/UserMenu/UserMenu';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { AuthNav } from 'components/AuthNav/AuthNav';
-import css from './AppBar.module.css';
+
 export const AppBar = () => {
   const user = useSelector(state => state.auth);
 
