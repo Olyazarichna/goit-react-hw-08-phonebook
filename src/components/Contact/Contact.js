@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 export const Contact = ({ id, name, number }) => {
   const [deleteContact, result] = useDeleteContactMutation();
   return (
-    <ListGroup.Item
+    <li> <ListGroup.Item
       variant="warning"
       className="d-flex p-1 justify-content-between"
     >
@@ -19,7 +19,8 @@ export const Contact = ({ id, name, number }) => {
       >
         Delete
       </Button>
-    </ListGroup.Item>
+    </ListGroup.Item></li>
+   
   );
 };
 
