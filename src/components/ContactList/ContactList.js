@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Contact } from 'components/Contact/Contact';
 import { useGetContactsQuery } from 'services/contactsApi';
+import css from './ContactList.module.css';
 
 export const ContactList = () => {
   const { data, error, isLoading } = useGetContactsQuery();
@@ -14,7 +15,7 @@ export const ContactList = () => {
   };
   return (
     <>
-      <ul className="d-flex flex-column justify-content-between w-30">
+      <ul className="d-flex flex-column w-30">
         {error ? (
           <>Oh no, there was an error</>
         ) : isLoading ? (

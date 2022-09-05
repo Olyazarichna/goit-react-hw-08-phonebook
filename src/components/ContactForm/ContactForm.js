@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from '@reduxjs/toolkit';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import css from './ContactForm.module.css';
 export const ContactForm = () => {
   const { data: contacts } = useGetContactsQuery();
 
@@ -58,8 +58,8 @@ export const ContactForm = () => {
 
   return (
     <>
-      <Form className="d-flex" onSubmit={onHandleSubmit}>
-        <Form.Label>Name</Form.Label>
+      <Form className="d-flex mt-2" onSubmit={onHandleSubmit}>
+        <Form.Label className={css.formTitle}>Name</Form.Label>
         <Form.Control
           className="me-2 w-25"
           aria-label="Search"
@@ -73,7 +73,7 @@ export const ContactForm = () => {
           placeholder="Enter name"
         />
 
-        <Form.Label>Number </Form.Label>
+        <Form.Label className={css.formTitle}>Number </Form.Label>
         <Form.Control
           className="me-2 w-25"
           aria-label="Search"

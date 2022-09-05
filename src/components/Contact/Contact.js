@@ -3,14 +3,20 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import PropTypes from 'prop-types';
 import css from './Contacts.module.css';
+import { AvatarGenerator } from 'random-avatar-generator';
+
 export const Contact = ({ id, name, number }) => {
   const [deleteContact, result] = useDeleteContactMutation();
+
+  const generator = new AvatarGenerator();
+ 
   return (
-    <li className={css.listItem}>
+    <li className='d-flex align-items-center mb-1'>
       {' '}
-      <ListGroup.Item
+      <img src={ generator.generateRandomAvatar()} className={css.avatar}/>
+      <ListGroup.Item 
         variant="warning"
-        className="d-flex p-1 justify-content-between"
+        className="d-flex p-1 align-items-center"
       >
         {name}: {number}
         <Button

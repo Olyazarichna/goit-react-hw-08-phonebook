@@ -1,4 +1,9 @@
-.listItem{
-    display: grid;
-    grid-template-columns:repeat(3 ,1fr);
+/* .listItem{
+ list-style: none;
+ display: flex;
+ 
+} */
+
+.avatar{
+    width: 50px;
 }
