@@ -59,7 +59,7 @@ export const ContactForm = () => {
   return (
     <>
       <Form className="d-flex" onSubmit={onHandleSubmit}>
-        <Form.Label>Name </Form.Label>
+        <Form.Label>Name</Form.Label>
         <Form.Control
           className="me-2 w-25"
           aria-label="Search"

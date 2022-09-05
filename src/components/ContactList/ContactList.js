@@ -14,7 +14,7 @@ export const ContactList = () => {
   };
   return (
     <>
-      <ul className="d-flex flex-column justify-content-between w-25">
+      <ul className="d-flex flex-column justify-content-between w-30">
         {error ? (
           <>Oh no, there was an error</>
         ) : isLoading ? (
