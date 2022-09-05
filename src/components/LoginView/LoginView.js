@@ -39,6 +39,7 @@ export const LoginView = () => {
 
   return (
     <>
+    <p>Please log in or sign up</p>
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-3">
           <Form.Group className="mb-3" controlId="formBasicEmail">
