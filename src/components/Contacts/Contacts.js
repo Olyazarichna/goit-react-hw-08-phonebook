@@ -7,9 +7,9 @@ export const Contacts = () => {
   return (
     <>
       <ContactForm />
-      <Card.Title>Find contact by name</Card.Title>
+      <Card.Title className='mt-4 my-2'>Find contact by name</Card.Title>
       <Filter />
-      <Card.Title>Contacts</Card.Title>
+      <Card.Title className='mt-4'>Contacts</Card.Title>
       <ContactList />
     </>
   );

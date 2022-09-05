@@ -4,13 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { useDispatch } from 'react-redux';
-import { useNavigate} from 'react-router';
+import { useNavigate } from 'react-router';
 import { login } from 'redux/authSlice';
 import { toast } from 'react-toastify';
 export const LoginView = () => {
   const [logIn, status] = useLoginMutation();
- const dispatch = useDispatch();
- const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { isLoading } = status;
 
@@ -27,19 +27,14 @@ export const LoginView = () => {
       navigate('/contacts');
       setEmail('');
       setPassword('');
-   
     } catch (error) {
-    toast.error(
-        'Something went wrong'
-      );
+      toast.error('Something went wrong');
     }
-
-   
   };
 
   return (
     <>
-    <p>Please log in or sign up</p>
+      <p className="my-3">Please log in or sign up</p>
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-3">
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -52,7 +47,7 @@ export const LoginView = () => {
               placeholder="Email"
               required
             />
-            <Form.Label>Password</Form.Label>
+            <Form.Label className="mt-1">Password</Form.Label>
             <Form.Control
               type="password"
               name="password"
@@ -64,7 +59,12 @@ export const LoginView = () => {
               required
             />
 
-            <Button variant="primary" type="submit" disabled={isLoading}>
+            <Button
+              className="mt-3"
+              variant="primary"
+              type="submit"
+              disabled={isLoading}
+            >
               Login
             </Button>
           </Form.Group>
