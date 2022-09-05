@@ -41,11 +41,11 @@ export const ContactForm = () => {
     };
     console.log('values', values);
     if (haveContacts(values)) {
-      toast.success('This contact already exist !');
+      toast.info('This contact already exist !');
       reset();
       return;
     } else {
-      toast.info('You add new contact !');
+      toast.success('You add new contact !');
       addContact(values);
     }
     reset();
