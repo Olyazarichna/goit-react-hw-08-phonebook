@@ -1,14 +1,13 @@
 import notFound from '../../imagesbackground/notFound.png';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
-import css from './NotFound.module.css';
 import Card from 'react-bootstrap/Card';
 export const NotFound = () => {
   return (
     <>
-      <Container fluid="md">
+      <Container fluid="md" className=" p-0">
         <Card className="text-center">
-          <p className={css.text}>
+          <p className="m-2 position-absolute fs-1 text-danger">
             Page not found,
             <Link to="/"> homepage </Link>
           </p>
