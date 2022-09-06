@@ -7,7 +7,7 @@ import {Contacts} from 'components/Contacts/Contacts';
 
 export const HomeView = () => {
   const user = useSelector(state => state.auth);
-  console.log('user',user);
+  // console.log('user',user);
 
   return (
     <Container fluid="md" className=' p-0'>

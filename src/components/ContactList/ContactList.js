@@ -6,8 +6,8 @@ import { useGetContactsQuery } from 'services/contactsApi';
 export const ContactList = () => {
   const { data, error, isLoading } = useGetContactsQuery();
   const { filter } = useSelector(state => state.filter);
-  const  {token} = useSelector(state => state.auth);
-  console.log('user', token)
+  // const  {token} = useSelector(state => state.auth);
+  // console.log('user', token)
   const filterContacts = () => {
     return data.filter(contactItem => {
       return contactItem.name.toLowerCase().includes(filter.toLowerCase());

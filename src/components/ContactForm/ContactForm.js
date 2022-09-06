@@ -39,7 +39,7 @@ export const ContactForm = () => {
       name: name,
       number: number,
     };
-    console.log('values', values);
+
     if (haveContacts(values)) {
       toast.info('This contact already exist !');
       reset();

@@ -11,9 +11,7 @@ export const LoginView = () => {
   const [logIn, status] = useLoginMutation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { isLoading } = status;
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,15 +21,12 @@ export const LoginView = () => {
       const {
         data: { user, token },
       } = await logIn({ email, password });
-
-      if (token) {
         dispatch(login({ user, token }));
         navigate('/contacts');
         setEmail('');
         setPassword('');
-      }
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       toast.error('Something went wrong');
     }
   };

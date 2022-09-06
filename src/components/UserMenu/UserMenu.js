@@ -8,10 +8,9 @@ export const UserMenu = () => {
   const { email } = useSelector(state => state.auth);
   const dispatch = useDispatch();
  
-console.log(contactsApi);
+// console.log(contactsApi);
   const handleClick = () => {
-    
-   
+  
     dispatch(logout());
    dispatch(contactsApi.util.resetApiState()) ;
   };
