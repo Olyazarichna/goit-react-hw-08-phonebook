@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useLoginMutation } from '../../services/authApi';
-import Form from 'react-bootstrap/Form';
+
 import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
+
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { login } from 'redux/authSlice';
@@ -23,11 +23,15 @@ export const LoginView = () => {
       const {
         data: { user, token },
       } = await logIn({ email, password });
-      dispatch(login({ user, token }));
-      navigate('/contacts');
-      setEmail('');
-      setPassword('');
+
+      if (token) {
+        dispatch(login({ user, token }));
+        navigate('/contacts');
+        setEmail('');
+        setPassword('');
+      }
     } catch (error) {
+      console.log(error.message);
       toast.error('Something went wrong');
     }
   };
@@ -35,41 +39,42 @@ export const LoginView = () => {
   return (
     <>
       <p className="my-3">Please log in or sign up</p>
-      <Form onSubmit={handleSubmit}>
-        <InputGroup className="mb-3">
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email </Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              value={email}
-              onChange={event => setEmail(event.currentTarget.value)}
-              placeholder="Email"
-              required
-            />
-            <Form.Label className="mt-1">Password</Form.Label>
-            <Form.Control
-              type="password"
-              name="password"
-              value={password}
-              onChange={event => setPassword(event.currentTarget.value)}
-              placeholder="Password"
-              minLength="4"
-              maxLength="8"
-              required
-            />
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={event => setEmail(event.currentTarget.value)}
+            placeholder="Email"
+            required
+            autoComplete="on"
+          />
+        </label>
+        <label className="mt-1">
+          Password
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={event => setPassword(event.currentTarget.value)}
+            placeholder="Password"
+            minLength="4"
+            required
+            autoComplete="on"
+          />
+        </label>
 
-            <Button
-              className="mt-3"
-              variant="primary"
-              type="submit"
-              disabled={isLoading}
-            >
-              Login
-            </Button>
-          </Form.Group>
-        </InputGroup>
-      </Form>
+        <Button
+          className="mt-3"
+          variant="primary"
+          type="submit"
+          disabled={isLoading}
+        >
+          Login
+        </Button>
+      </form>
     </>
   );
 };
