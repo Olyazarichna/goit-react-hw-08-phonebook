@@ -34,10 +34,10 @@ export const LoginView = () => {
   return (
     <>
       <p className="my-3">Please log in or sign up</p>
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form onSubmit={handleSubmit} className='d-flex'>
+        <label className="mt-1">
           Email
-          <input
+          <input className='m-1'
             type="email"
             id="email"
             value={email}
@@ -50,6 +50,7 @@ export const LoginView = () => {
         <label className="mt-1">
           Password
           <input
+          className='m-1'
             type="password"
             id="password"
             value={password}
@@ -61,14 +62,14 @@ export const LoginView = () => {
           />
         </label>
 
-        <Button
-          className="mt-3"
+        <button
+          className="btn btn-warning"
           variant="primary"
           type="submit"
           disabled={isLoading}
         >
           Login
-        </Button>
+        </button>
       </form>
     </>
   );
