@@ -27,8 +27,8 @@ export const App = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginView />} />
-            <Route path="/register" element={<SignupView />} />
+            <Route path="/login" element={token ? <Contacts />:<LoginView />} />
+            <Route path="/register" element={token ? <Contacts />: <SignupView />} />
             <Route path="/" element={<PrivateRoute />}>
               <Route path="/contacts" element={<Contacts />} />
             </Route>
