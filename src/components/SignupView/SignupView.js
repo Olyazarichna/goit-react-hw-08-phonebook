@@ -79,7 +79,7 @@ export const SignupView = () => {
           className="me-2 w-25"
           aria-label="Search"
         />
-        <Button variant="outline-success" type="submit" >
+        <Button variant="outline-success" type="submit" className='mt-2' >
           Sign up
         </Button>
       </Form>
